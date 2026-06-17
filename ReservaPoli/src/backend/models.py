@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, Column, DateTime, Integer, String, Text, func, Numeric
+from sqlalchemy import Boolean, Column, DateTime, Integer, String, Text, func, Numeric, relationship
 from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
@@ -15,9 +15,10 @@ class User(Base):
     is_superuser = Column(Boolean, nullable=False, default=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
+    pista = relationship("Pista", backref="user", uselist=False)
 
-    def __repr__(self):
-        return f"<User(id={self.id}, username={self.username}, email={self.email})>"
+    def serialize(self):
+        return f"<User(id={self.id}, username={self.username}, email={self.email}, pista={self.pista})>"
 
 
 class Pista(Base):
@@ -25,7 +26,7 @@ class Pista(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     nombre = Column(String(100), nullable=False, index=True)
-    tipo = Column(String(50), nullable=False)  # tenis, futbol, badminton, etc.
+    tipo = Column(String(50), nullable=False)
     capacidad = Column(Integer, nullable=True)
     precio_por_hora = Column(Numeric(10, 2), nullable=False)
     descripcion = Column(Text, nullable=True)
@@ -33,5 +34,6 @@ class Pista(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
 
-    def __repr__(self):
+
+    def serialize(self):
         return f"<Pista(id={self.id}, nombre={self.nombre}, tipo={self.tipo})>"
