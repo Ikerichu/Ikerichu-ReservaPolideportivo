@@ -188,11 +188,12 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px 32px;
-  background: var(--bg);
+  background: linear-gradient(135deg, var(--bg) 0%, rgba(170, 59, 255, 0.02) 100%);
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 
   @media (max-width: 1024px) {
     padding: 12px 20px;
@@ -201,10 +202,19 @@
 
 .navbar__brand {
   font-size: 24px;
-  font-weight: bold;
-  color: var(--text-h);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--text-h), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-decoration: none;
   margin-right: 32px;
+  letter-spacing: -0.5px;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 
   @media (max-width: 1024px) {
     font-size: 20px;
@@ -222,46 +232,76 @@
 
 .navbar__left {
   display: flex;
-  gap: 24px;
+  gap: 28px;
   align-items: center;
 
   @media (max-width: 1024px) {
-    gap: 16px;
+    gap: 18px;
   }
 
   a {
     color: var(--text);
     text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 6px;
-    transition: all 0.3s;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s;
+    font-weight: 500;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
 
     &:hover {
       color: var(--accent);
-      background: var(--accent-bg);
+
+      &::after {
+        width: 100%;
+      }
     }
   }
 }
 
 .navbar__right {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   align-items: center;
 
   @media (max-width: 1024px) {
-    gap: 12px;
+    gap: 10px;
   }
+}
 
-  a {
-    color: var(--text);
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 6px;
-    transition: all 0.3s;
+.navbar__auth {
+  color: var(--text);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.3s;
+  font-weight: 500;
+  font-size: 14px;
+  border: 1px solid transparent;
 
-    &:hover {
-      color: var(--accent);
-      background: var(--accent-bg);
-    }
+  &:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+}
+
+.navbar__auth--primary {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+
+  &:hover {
+    color: var(--bg);
+    background: var(--accent);
+    box-shadow: 0 4px 12px rgba(170, 59, 255, 0.3);
   }
 }

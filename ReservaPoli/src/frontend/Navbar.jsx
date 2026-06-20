@@ -5,7 +5,7 @@ function Navbar() {
 
   return (
     <header className="navbar">
-      <div className="navbar__brand">Reserva Poli</div>
+      <a href="#" className="navbar__brand">Reserva Poli</a>
       <nav className="navbar__nav">
         <div className="navbar__left">
           <a href="#">Inicio</a>
@@ -14,11 +14,11 @@ function Navbar() {
         </div>
         <div className="navbar__right">
           {isLoggedIn ? (
-            <a href="#">Perfil</a>
+            <a className="navbar__auth" href="#">👤 Perfil</a>
           ) : (
             <>
-              <a href="#">Login</a>
-              <a href="#">Registro</a>
+              <a className="navbar__auth" href="#">Iniciar sesión</a>
+              <a className="navbar__auth navbar__auth--primary" href="#">Registrarse</a>
             </>
           )}
         </div>
