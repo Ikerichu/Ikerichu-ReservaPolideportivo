@@ -408,6 +408,136 @@
   color: var(--text);
 }
 
+.feature-icon {
+  display: inline-block;
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.button.large {
+  padding: 0 36px;
+  min-height: 56px;
+  font-size: 1.05rem;
+}
+
+.sports-section {
+  max-width: 1080px;
+  margin: 64px auto;
+  padding: 0 32px;
+
+  @media (max-width: 1024px) {
+    padding: 0 20px;
+    margin: 48px auto;
+  }
+}
+
+.sports-section h2 {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.sports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.sport-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--bg);
+  border: 1px solid rgba(170, 59, 255, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    border-color: rgba(170, 59, 255, 0.3);
+    box-shadow: 0 12px 36px rgba(170, 59, 255, 0.1);
+    transform: translateY(-4px);
+  }
+}
+
+.sport-emoji {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+.sport-card p {
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1080px;
+  margin: 64px auto;
+  padding: 40px;
+  background: linear-gradient(135deg, rgba(170, 59, 255, 0.08), rgba(192, 132, 252, 0.05));
+  border-radius: 24px;
+  border: 1px solid rgba(170, 59, 255, 0.1);
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    margin: 48px 32px;
+    padding: 32px 20px;
+  }
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), rgba(192, 132, 252, 0.8));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+
+.stat-item p {
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.cta-section {
+  max-width: 980px;
+  margin: 64px auto 48px;
+  padding: 48px;
+  background: radial-gradient(circle at bottom right, rgba(170, 59, 255, 0.2), rgba(255, 255, 255, 0.9));
+  border-radius: 24px;
+  border: 1px solid rgba(170, 59, 255, 0.15);
+  text-align: center;
+
+  @media (max-width: 1024px) {
+    margin: 48px 32px 32px;
+    padding: 36px 24px;
+  }
+}
+
+.cta-content h2 {
+  margin-bottom: 12px;
+}
+
+.cta-content p {
+  margin-bottom: 28px;
+  color: var(--text);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media (max-width: 1024px) {
   .features {
     grid-template-columns: 1fr;
