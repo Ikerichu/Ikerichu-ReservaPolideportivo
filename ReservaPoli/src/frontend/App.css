@@ -625,3 +625,53 @@
   color: var(--text);
   margin: 0;
 }
+
+.content-section {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 48px 32px;
+
+  @media (max-width: 1024px) {
+    padding: 36px 20px;
+  }
+}
+
+.content-section h1 {
+  margin-bottom: 24px;
+}
+
+.content-section > p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 48px;
+}
+
+.installations-list {
+  display: grid;
+  gap: 24px;
+}
+
+.installation-item {
+  padding: 28px;
+  border-radius: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.installation-item:hover {
+  border-color: rgba(170, 59, 255, 0.3);
+  box-shadow: 0 8px 24px rgba(170, 59, 255, 0.08);
+}
+
+.installation-item h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.installation-item p {
+  margin: 8px 0;
+  color: var(--text);
+  line-height: 1.6;
+}
