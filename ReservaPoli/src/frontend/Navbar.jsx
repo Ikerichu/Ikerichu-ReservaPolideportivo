@@ -1,24 +1,25 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   return (
     <header className="navbar">
-      <a href="/" className="navbar__brand">Reserva Poli</a>
+      <Link to="/" className="navbar__brand">Reserva Poli</Link>
       <nav className="navbar__nav">
         <div className="navbar__left">
-          <a href="/">Inicio</a>
-          <a href="/instalaciones">Instalaciones</a>
-          <a href="#">Reservas</a>
+          <Link to="/">Inicio</Link>
+          <Link to="/instalaciones">Instalaciones</Link>
+          <Link to="#">Reservas</Link>
         </div>
         <div className="navbar__right">
           {isLoggedIn ? (
-            <a className="navbar__auth" href="#">👤 Perfil</a>
+            <Link className="navbar__auth" to="#">👤 Perfil</Link>
           ) : (
             <>
-              <a className="navbar__auth" href="#">Iniciar sesión</a>
-              <a className="navbar__auth navbar__auth--primary" href="#">Registrarse</a>
+              <Link className="navbar__auth" to="#">Iniciar sesión</Link>
+              <Link className="navbar__auth navbar__auth--primary" to="#">Registrarse</Link>
             </>
           )}
         </div>
